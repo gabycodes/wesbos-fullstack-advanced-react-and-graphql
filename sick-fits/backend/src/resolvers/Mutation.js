@@ -2,13 +2,12 @@ const Mutation = {
   async createItem(parents, args, context, info) {
     // TODO: Check if they are logged in
 
-    const item = await context.db.mutation.createItem({
+    const item = await context.db.mutation.createItem({ // "context.db.mutation" returns a promise
       data: {
         ... args
       }
-    }, info)
+    }, info) // info contains the query. Our mutation needs access to the query so it can specify what data gets returned from the DB
 
-    console.log(item);
     return item;
   }
   // createDog(parent, args, context, info) {
